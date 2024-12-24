@@ -1,25 +1,25 @@
 module.exports = [
   {
-    id: "valuationFeePaid",
+    id: 1,
     description: "Valuation Fee Paid",
     check: (data) => data.isValuationFeePaid === true,
   },
   {
-    id: "ukResident",
+    id: 2,
     description: "UK Resident",
     check: (data) => data.isUkResident === true,
   },
   {
-    id: "riskRatingMedium",
+    id: 3,
     description: "Risk Rating Medium",
     check: (data) => data.riskRating === "Medium",
   },
   {
-    id: "ltvBelow60",
+    id: 4,
     description: "LTV Below 60%",
     check: (data) => {
-      const loanToValue = (data.loanRequired / data.purchasePrice) * 100;
-      return loanToValue < 60;
+      const ltv = (data.loanRequired / data.purchasePrice) * 100;
+      return ltv < 60;
     },
   },
 ];

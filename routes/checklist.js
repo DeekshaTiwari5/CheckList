@@ -6,12 +6,10 @@ const router = express.Router();
 
 router.get("/evaluate", async (req, res) => {
   try {
-    // Fetch data from the API
-    const { data } = await axios.get(
-      "http://qa-gb.api.dynamatix.com:3100/api/applications/getApplicationById/67339ae56d5231c1a2c63639"
-    );
+    const apiUrl = process.env.API_URL;
 
-    // Evaluate each rule
+    const { data } = await axios.get(apiUrl);
+
     const results = rules.map((rule) => ({
       id: rule.id,
       description: rule.description,
@@ -20,9 +18,8 @@ router.get("/evaluate", async (req, res) => {
 
     res.json({ results });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error fetching data", error: error.message });
+    console.error("Error fetching API data:", error.message);
+    res.status(500).json({ message: "Failed to fetch data from API" });
   }
 });
 
