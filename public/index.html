@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      Checklist Dashboard
+    </header>
+    <main>
+      <button id="fetch-btn" class="btn-primary">Evaluate Checklist</button>
+      <div class="table-container">
+        <table class="checklist-table">
+          <thead>
+            <tr>
+              <th>Condition</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="checklist-results">
+            <tr>
+              <td colspan="2">Click "Evaluate Checklist" to see results.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <footer>
+      &copy; 2024 Checklist System
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
