@@ -4,9 +4,13 @@ const cors = require("cors");
 require("dotenv").config();
 
 const checklistRoutes = require("./routes/checklist");
+const corsOptions = {
+  origin: "*", // Allow requests from any origin
+  methods: "GET,POST", // Define allowed methods
+};
 
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
